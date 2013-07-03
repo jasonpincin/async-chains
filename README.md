@@ -83,13 +83,13 @@ calls the supplied callback, the result of that callback is supplied as an argum
 no further chain steps will be called, and the final callback will be immediately invoked with the error. Once the final function in the chain 
 completes and calls it's callback, the arguments are passed to the finalCallback.
 
-### var linkedFn = chain.link(collFn, param1, param2, ..., iter)
+### chain.link(collFn, param1, param2, ..., iter)
 
 Returns a function usable in a chain that calls the async collection function (collFn) given with any additional parameters needed (such is the case 
 with the limit variety such as eachLimit), and iterator. The result of the previous chain step's output will be supplied as the first argument to 
 the async collection function.
 
-### var linkedFn = chain.link.noError(collFn, param1, param2, ..., iter)
+### chain.link.noError(collFn, param1, param2, ..., iter)
 
 This returns a function usable in a chain, as above, but should be used on async functions that do NOT return an error object. One such example is 
 async.filter.
