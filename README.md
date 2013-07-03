@@ -144,10 +144,26 @@ arguments that was passed to the final callback.
 
 `npm test`
 
-or 
+Test scripts also support TAP when executed individually. You can use a tap consumer (such as [node-tap](https://github.com/isaacs/node-tap)) to consume 
+all tests:
 
 `tap test`
 
-or
+# test coverage
 
-`jasmine-node test`
+Test coverage reporting requires you to have [istanbul](https://github.com/gotwarlost/istanbul) installed. 
+
+`npm install -g istanbul`
+
+Then you can run the coverage report:
+
+`npm run-script coverage`
+
+```
+=============================== Coverage summary ===============================
+Statements   : 100% ( 39/39 )
+Branches     : 100% ( 8/8 )
+Functions    : 100% ( 12/12 )
+Lines        : 100% ( 39/39 )
+================================================================================
+```

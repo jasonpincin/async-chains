@@ -18,7 +18,8 @@
         ],
         "main": "./index.js",
         "scripts": {
-            "test": "jasmine-node test; echo >&2 'Tests support TAP. Use node-tap and consume TAP output with \"tap test\".'"
+            "test": "jasmine-node test",
+            "coverage": "istanbul cover --print summary --dir ./test/.coverage jasmine-node -- test 2> /dev/null || echo 'Istanbul required for test coverage reports: npm install -g istanbul'"
         },
         "engine": {
             "node": ">=0.8.8"
