@@ -7,6 +7,15 @@
             "url": "https://github.com/jasonpincin/async-chains"
         },
         "homepage": "https://github.com/jasonpincin/async-chains",
+        "keywords": [
+            "async",
+            "chain",
+            "flow",
+            "control",
+            "callback",
+            "emit",
+            "EventEmitter"
+        ],
         "main": "./index.js",
         "scripts": {
             "test": "jasmine-node test; echo >&2 'Tests support TAP. Use node-tap and consume TAP output with \"tap test\".'"
