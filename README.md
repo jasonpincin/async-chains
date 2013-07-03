@@ -7,7 +7,7 @@ Create asynchronous callback chains. Make them powerful with built-in support fo
 
 Create a few functions that adhere to the error-first callback convention in node. Chain them together to create a new function.  
 
-``js
+```js
 var chain  = require('async-chains')
 
 function cap (s)            { return s.toUpperCase()  }
