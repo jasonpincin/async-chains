@@ -78,7 +78,7 @@ the iterator we want to use, we use chain.link(asyncCollectionFunction, iterator
 var chain = require('async-chains')
 ```
 
-## var chainFn = chain(fn1, fn2, fn3, ...)
+### var chainFn = chain(fn1, fn2, fn3, ...)
 
 Create a new `function (arg1, arg2, ..., finalCallback)` that when invoked will have it's args passed to fn1 allong with a callback. When fn1 
 calls the supplied callback, the result of that callback is supplied as an argument to fn2, etc. If any callback is supplied an error argument, 
@@ -109,6 +109,36 @@ fs.readdir(process.cwd(), chain.to(lastChange, function (err, result) {
     console.log(result)
 }))
 ```
+
+# events
+
+When a chain function is called, an event emitter is returned. This emitter emits `step` and `complete` events. None of these events are gauranteed. 
+For example, a complete event is never emitted if an error is passed to the finalCallback. Nonetheless, these events may be useful for tracking 
+progress. Example:
+
+```js
+var chainFn = chain(fn1, fn2, fn3)
+var progress = chainFn(function (err) {
+    if (err) console.error(err)
+})
+progress
+.on('step', function (step, args) {
+    console.log('chainFn step %s executed', step)
+})
+.on('complete', function (args) {
+    console.log('chainFn complete')
+})
+```
+
+### .on('step', function (step, args) {...})
+
+A step event is emitted for each function in the chain that is executed. Two arguments are passed to the listener, the first being the step index (0-based), 
+and the second argument is an array of arguments that was passed to the function at that step.
+
+### .on('complete', function (args) {...})
+
+A complete event is emitted once the chain function called the final callback. The listener of this event received a single argument, which is an array of 
+arguments that was passed to the final callback.
 
 # testing
 
