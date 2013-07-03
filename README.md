@@ -1,7 +1,8 @@
 async-chains
 ============
 
-Create asynchronous callback chains. Make them powerful with built-in support for caolan's excellent [async](https://github.com/caolan/async) module.
+Create asynchronous callback chains. Make them powerful by chaining modules like [async](https://github.com/caolan/async), and countless 
+others that conform to the standard error-first callback and/or collection, iterator, consumer conventions.
 
 [![browser support](http://ci.testling.com/jasonpincin/async-chains.png)](http://ci.testling.com/jasonpincin/async-chains)
 
@@ -29,8 +30,8 @@ steps in the chain are skipped, and the final callback receives the error.
 
 # example with async
 
-async-chains was written to make expressing task sequences simpler, especially when leveraging caolan's [async](https://github.com/caolan/async) 
-module, while maintaining the node callback pattern. Here's an example of a chain that leverages async to do some file ops:
+async-chains was written to make expressing task sequences simpler, especially when leveraging modules like [async](https://github.com/caolan/async), 
+while maintaining the node callback pattern. Here's an example of a chain that leverages async to do some file ops:
 
 ```js
 var chain  = require('async-chains')
@@ -68,9 +69,9 @@ getVimfileStats(process.env.HOME, function (err, result) {
 })
 ```
 
-In this example, we use chain.link to interface with async functions. The async collection function argument pattern, for the most part, 
-is: array, iterator, callback. The array and callback args will be supplied from the previous step in the chain, but in order to inject 
-the iterator we want to use, we use chain.link(asyncCollectionFunction, iteratorFunction).
+In this example, we use chain.link to interface with async functions. The async collection functions follow a format similar to many other 
+node modules (collection, iterator, callback). The array and callback args will be supplied from the previous step in the chain, but in 
+order to inject the iterator we want to use, we use chain.link(asyncCollectionFunction, iteratorFunction).
 
 # api
 
@@ -87,9 +88,9 @@ completes and calls it's callback, the arguments are passed to the finalCallback
 
 ### chain.link(collFn, param1, param2, ..., iter)
 
-Returns a function usable in a chain that calls the async collection function (collFn) given with any additional parameters needed (such is the case 
-with the limit variety such as eachLimit), and iterator. The result of the previous chain step's output will be supplied as the first argument to 
-the async collection function.
+Returns a function usable in a chain that calls the collection function (collFn) given with any additional parameters needed (such is the case 
+with the async limit variety, i.e. eachLimit), and iterator. The result of the previous chain step's output will be supplied as the first argument to 
+the collection function.
 
 ### chain.link.noError(collFn, param1, param2, ..., iter)
 
