@@ -3,6 +3,8 @@ async-chains
 
 Create asynchronous callback chains. Make them powerful with built-in support for caolan's excellent [async](https://github.com/caolan/async) module.
 
+[![browser support](http://ci.testling.com/jasonpincin/async-chains.png)](http://ci.testling.com/jasonpincin/async-chains)
+
 # example
 
 Create a few functions that adhere to the error-first callback convention in node. Chain them together to create a new function.  

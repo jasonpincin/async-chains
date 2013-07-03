@@ -1,25 +1,37 @@
 {
-  "name": "async-chains",
-  "description": "Utility for creating callback-based async execution chains, designed to work with Caolan's async library",
-  "version": "0.0.0",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/jasonpincin/async-chains"
-  },
-  "main": "./index.js",
-  "scripts": {
-    "test": "jasmine-node test; echo >&2 'Tests support TAP. Use node-tap and consume TAP output with \"tap test\".'"
-  },
-  "engine": {
-    "node": ">=0.8.8"
-  },
-  "author": {
-    "name": "Jason Pincin",
-    "email": "jason@pincin.com"
-  },
-  "devDependencies": {
-    "jasmine-tapreporter": "~0.2.2",
-    "jasmine-node": "~1.10.1",
-    "async": "~0.2.9"
-  }
+    "name": "async-chains",
+        "description": "Asynchronous callback chains with support for caolan's async module",
+        "version": "0.0.0",
+        "repository": {
+            "type": "git",
+            "url": "https://github.com/jasonpincin/async-chains"
+        },
+        "homepage": "https://github.com/jasonpincin/async-chains",
+        "main": "./index.js",
+        "scripts": {
+            "test": "jasmine-node test; echo >&2 'Tests support TAP. Use node-tap and consume TAP output with \"tap test\".'"
+        },
+        "engine": {
+            "node": ">=0.8.8"
+        },
+        "author": {
+            "name": "Jason Pincin",
+            "email": "jason@pincin.com"
+        },
+        "devDependencies": {
+            "jasmine-tapreporter": "~0.2.2",
+            "jasmine-node": "~1.10.1",
+            "async": "~0.2.9"
+        },
+        "testling": {
+            "files": "test/*_spec.js",
+            "browsers": {
+                "ie"      : [ 8,9,10 ],
+                "firefox" : [ 17 ],
+                "chrome"  : [ 20 ],
+                "safari"  : [ 6 ],
+                "opera"   : [ 12 ]
+            }
+        },
+        "license": "BSD"
 }
