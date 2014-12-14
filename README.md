@@ -1,13 +1,11 @@
 async-chains
 ============
 
-**Deprecated**
+# Deprecated
 Use the simpler [evented-chain](https://github.com/jasonpincin/evented-chain) instead. It's got more focus, less features, and less surprises.
 
 Create asynchronous callback chains. Make them powerful by chaining modules like [async](https://github.com/caolan/async), and countless 
 others that conform to the standard error-first callback and/or collection, iterator, consumer conventions.
-
-[![browser support](http://ci.testling.com/jasonpincin/async-chains.png)](http://ci.testling.com/jasonpincin/async-chains)
 
 # example
 
